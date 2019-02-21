@@ -1,7 +1,18 @@
 class ArtistsController < ApplicationController
 
-get "/songs" do
+  get "/artists" do
 
-  erb :index
+    erb :index
+  end
+
+  get "/artists/new" do
+
+    erb :new
+  end
+
+  get "/artists/:slug" do
+
+    erb :show
+  end
 
 end
