@@ -9,8 +9,20 @@ class SongsController < Sinatra::Base
   end
 
   get "/songs/new" do
+    @songs = Song.all
 
     erb :new
+  end
+
+  post "/songs" do
+    song = Song.new
+    binding.pry
+    song.artist = Artist.find_or_create_by(name: params[:artist_name])
+    song.name = params[:Name]
+    Genre.find_or_create_by(name: params[:genre_name])
+    song.save
+    redirect "/songs/:slug"
+
   end
 
   get "/songs/:slug" do
