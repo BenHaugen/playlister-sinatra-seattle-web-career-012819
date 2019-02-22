@@ -1,4 +1,4 @@
-class GenresController < ApplicationController
+class GenresController < Sinatra::Base
 
     set :views, "app/views/genres"
 

@@ -1,5 +1,5 @@
 require "pry"
-class SongsController < ApplicationController
+class SongsController < Sinatra::Base
 
   set :views, "app/views/songs"
 
@@ -25,6 +25,7 @@ class SongsController < ApplicationController
 
     @song_genre = SongGenre.find(@this_song.id)
     @genre = Genre.find(@song_genre.id)
+
 
 
     erb :show

@@ -1,4 +1,4 @@
-class ArtistsController < ApplicationController
+class ArtistsController < Sinatra::Base
 
     set :views, "app/views/artists"
 
