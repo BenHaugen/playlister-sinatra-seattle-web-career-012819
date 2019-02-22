@@ -1,5 +1,7 @@
 class ArtistsController < ApplicationController
 
+    set :views, "app/views/artists"
+
   get "/artists" do
 
     erb :index

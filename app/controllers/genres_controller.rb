@@ -1,5 +1,7 @@
 class GenresController < ApplicationController
 
+    set :views, "app/views/genres"
+
   get "/genres" do
 
     erb :index
