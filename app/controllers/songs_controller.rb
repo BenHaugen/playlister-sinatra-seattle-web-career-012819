@@ -1,3 +1,4 @@
+require "pry"
 class SongsController < ApplicationController
 
   set :views, "app/views/songs"
@@ -13,6 +14,18 @@ class SongsController < ApplicationController
   end
 
   get "/songs/:slug" do
+
+    @this_song = Song.all.find do |song|
+      song.slug == params[:slug]
+    end
+
+    @artist = Artist.all.find do |artist|
+      artist.id == @this_song.artist_id
+    end
+
+    @song_genre = SongGenre.find(@this_song.id)
+    @genre = Genre.find(@song_genre.id)
+
 
     erb :show
   end
